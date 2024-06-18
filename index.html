@@ -19,7 +19,7 @@
     <script src="https://js.arcgis.com/4.26/"></script>
     <!--loading the modules-->
     <script>
-        require(["esri/config", "esri/Map", "esri/views/MapView" ], (esriConfig, Map, MapView) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search"], (esriConfig, Map, MapView, Locate, Search) => {
             esriConfig.apiKey = "AAPK51131ceb7a344744a1876418638342eeSK8Lwr1BXfJ_rAAGMFmph-VYFJCbhVaGp2tW9m6iEHGJBjg1DFEhUf3Ay1rM_yWw";
             const map = new Map({
                 basemap: "arcgis-light-gray"
@@ -30,6 +30,21 @@
                 zoom: 12, //zoomed view of downtown DC
                 map: map // References the map object
                 });
+                const locateBtn = new Locate({
+                    view: view
+                    });
+                const searchWidget = new Search({
+                    view: view
+                    });                        
+            // Add the locate widget to the top left corner of the view
+            view.ui.add(locateBtn, {
+            position: "top-left"
+            });
+            // Add the search widget to the top right corner of the view
+            view.ui.add(searchWidget, {
+            position: "top-right",
+            index: 2
+            });
          });
         </script>
   </head>
