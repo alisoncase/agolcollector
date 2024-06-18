@@ -19,10 +19,10 @@
     <script src="https://js.arcgis.com/4.26/"></script>
     <!--loading the modules-->
     <script>
-        require(["esri/Config", "esri/Map", "esri/views/MapView" ], (Config, Map, MapView) => {
+        require(["esri/config", "esri/Map", "esri/views/MapView" ], (esriConfig, Map, MapView) => {
             esriConfig.apiKey = "AAPK51131ceb7a344744a1876418638342eeSK8Lwr1BXfJ_rAAGMFmph-VYFJCbhVaGp2tW9m6iEHGJBjg1DFEhUf3Ay1rM_yWw";
             const map = new Map({
-                basemap: "gray-vector"
+                basemap: "arcgis-light-gray"
                 });
             const view = new MapView({
                 container: "viewDiv", // Reference to the DOM node that will contain the view
